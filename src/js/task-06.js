@@ -1,8 +1,14 @@
 const input = document.querySelector('#validation-input');
-let a;
-input.addEventListener('input', event => a = event.currentTarget.value);
-// if (a.length < parseInt(input.dataset.length)) {
-//     input.id = 'validation-input.invalid'
-// }
-// else {input.id = 'validation-input.valid'}
-console.log(a.length);
+const maxLen = input.dataset.length*1;
+input.addEventListener('blur', () => {
+    if (input.value.length === maxLen) {
+        input.classList.remove('invalid');
+        input.classList.add('valid')
+    }
+    else {
+        input.classList.remove('valid');
+        input.classList.add('invalid')
+    }
+}
+)
+
